@@ -58,7 +58,9 @@ class GameInstance:
       mean_cumulative_rewards = np.mean(cumulative_rewards, axis=0)
       cumulative_rewards_hindsight = np.cumsum(optimal_reward)
       pseudo_regret = (cumulative_rewards_hindsight - mean_cumulative_rewards)/range(1,self.T+1)
-      std_pseudo_regret = np.sqrt(np.var(np.cumsum(reward_trajectories, axis=1), axis=0))/range(1,self.T+1) 
+      
+      std_pseudo_regret = np.std(cumulative_rewards_hindsight - np.cumsum(reward_trajectories, axis=1), axis=0)/range(1,self.T+1) 
+      
       return pseudo_regret, std_pseudo_regret, cumulative_rewards, cumulative_rewards_hindsight
           
       
@@ -75,7 +77,8 @@ def main(args):
    
    T = args.T
    K = args.K
-   
+   T = 10000
+   K=10
    setting = 'decentralized'
    game_instance = GameInstance(T, setting)
    regret_ub = game_instance.evaluate_upper_bound()

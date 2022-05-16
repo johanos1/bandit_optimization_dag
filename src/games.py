@@ -1,5 +1,3 @@
-from tkinter.tix import INTEGER
-from xmlrpc.client import boolean
 import numpy as np
 from players import Player
 from itertools import product as iterproduct
@@ -77,7 +75,7 @@ class SocioEconomicGame(Game):
         
         # prepare workers
         # create mapping from action to (marginal gross income, marginal labour)
-        self.default_incomes = list(range(5, 5*(self.num_worker_actions+1),5))
+        self.default_incomes = [5, 10, 15]
         self.gamma = 0.3 # nonlinearity in utility function
         
         # initiate the workers
@@ -87,8 +85,8 @@ class SocioEconomicGame(Game):
             skill = i # the skill level is given as the worker index
             self.players[i].action_map = []  # initiate mapping from action to (marginal income, marginal labour)
             for j in range(self.num_worker_actions): # Go through each worker action
-                marginal_income = self.default_incomes[j] * skill # marginal income depends on the skill
-                marginal_labour = (j) # higher income means higher labour
+                marginal_income = self.default_incomes[j]  # marginal income depends on the skill
+                marginal_labour = j / skill # higher income means higher labour
                 self.players[i].action_map.append(tuple([marginal_income, marginal_labour]))  # save mapping for each action
         
         # Make sure all variables match
@@ -264,7 +262,6 @@ class SocioEconomicGame(Game):
                     best_actions = actions
         
         # obtain all the rewards for the best actions
-        #best_actions=[8, 0, 0, 0] 
         reward=[]
         self.reset_game()
         for t in range(self.T):
