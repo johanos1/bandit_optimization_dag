@@ -1,5 +1,4 @@
-# Decentralized Online Bandit Optimization on Directed
-Graphs with Regret Bounds
+# Decentralized Online Bandit Optimization on Directed Graphs with Regret Bounds
 Source code to generate the numerical results in the paper "Decentralized Online Bandit Optimization on Directed
 Graphs with Regret Bounds". 
 
