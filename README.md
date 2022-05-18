@@ -14,7 +14,7 @@ To generate Fig.3 in the paper, run:
 ```
 python3 main.py --T 1000000 --K 100
 ``` 
-This command will store the result in output.csv and generate the figure below
+This command will store the result in output.csv and generate the figure below.
 
 <figure>
   <img src="https://user-images.githubusercontent.com/40794255/168978565-76062882-c359-4b6c-b075-5cfc483eb289.png" width="300" height="300" \>
