@@ -1,5 +1,5 @@
 import numpy as np
-from players import Player
+from  .players import Player
 from itertools import product as iterproduct
 import abc
 
