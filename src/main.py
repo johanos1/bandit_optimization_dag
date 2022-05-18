@@ -76,8 +76,7 @@ def main(args):
    
    T = args.T
    K = args.K
-   T = 10000
-   K = 10
+
    setting = 'decentralized'
    game_instance = GameInstance(T, setting)
    regret_ub = game_instance.evaluate_upper_bound()

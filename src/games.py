@@ -255,7 +255,7 @@ class SocioEconomicGame(Game):
                 actions.append(a) 
                 actions += list(b)
                 reward = 0
-                for t in range(1,np.minimum(1000, self.T)):
+                for t in range(1,np.minimum(10000, self.T)): # this is used to speed up the search
                     reward += self.get_reward(actions)
                 if reward > best_cumulative_reward: 
                     best_cumulative_reward = reward
